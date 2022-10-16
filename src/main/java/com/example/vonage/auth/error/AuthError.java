@@ -21,5 +21,6 @@ public class AuthError implements AuthenticationEntryPoint, Serializable {
         String responseMsg = mapper.writeValueAsString("Unathorized User");
         response.getWriter().write(responseMsg);
         response.setContentType("application/json");
+        response.setStatus(401);
     }
 }

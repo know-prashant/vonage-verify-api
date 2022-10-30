@@ -16,7 +16,7 @@ public class AuthService {
 
     VonageClient client = VonageClient.builder().apiKey("7ed*****").apiSecret("W3BuxE9VlaW*****").build();
 
-    public String sendOtp(String identifier){
+    public String init(String identifier){
         System.out.println(identifier);
         VerifyResponse response = client.getVerifyClient().verify("919004******", "Vonage");
 

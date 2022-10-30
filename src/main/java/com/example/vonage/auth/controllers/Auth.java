@@ -20,11 +20,11 @@ public class Auth {
 
     @PostMapping(path="/init", consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE})
     public String init(@NotBlank String identifier){
-        return authService.sendOtp(identifier);
+        return authService.init(identifier);
     }
 
     @PostMapping(path="/verify", consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE})
-    public String init(@NotBlank String identifier, @NotBlank String request_id, @NotBlank String otp){
+    public String verify(@NotBlank String identifier, @NotBlank String request_id, @NotBlank String otp){
         return authService.verify(identifier, request_id, otp);
     }
 }

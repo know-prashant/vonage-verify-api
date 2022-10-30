@@ -6,6 +6,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.cglib.core.internal.Function;
 import org.springframework.stereotype.Component;
 
+import java.time.Duration;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -43,7 +44,7 @@ public class JWTUtil {
 
     private String createToken(Map<String, Object> claims, String subject){
         long time = System.currentTimeMillis();
-        long expiry = 1000 * 60 * 60 * 10;
+        long expiry = Duration.ofDays(10).toMillis();
         return Jwts.builder()
                 .setClaims(claims)
                 .setSubject(subject)
